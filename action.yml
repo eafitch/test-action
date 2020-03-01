@@ -6,22 +6,23 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  param-x:  # id of input
+  param_x:  # id of input
     description: 'Param X'
     required: false
     default: '123'
-  param-y:  # id of input
+  param_y:  # id of input
     description: 'Param Y'
     required: false
     default: '324'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
-
+  sum:
+    description: 'Sum of X && Y'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
-    - ${{ inputs.param-x }}
-    - ${{ inputs.param-y }}
+    - ${{ inputs.param_x }}
+    - ${{ inputs.param_y }}

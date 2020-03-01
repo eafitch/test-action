@@ -1,9 +1,9 @@
 #!/bin/sh -l
 
-env
-echo $INPUT_PARAM-X
-echo $INPUT_PARAM-Yx
-echo "Hello " + $INPUT_WHO-TO-GREET
-echo "X: $INPUT_PARAM-X / Y: ${INPUT_PARAM-Y}"
+echo ${INPUT_PARAM_X}
+echo ${INPUT_PARAM_Y}
+echo "Hello $1"
+echo "X: ${INPUT_PARAM_X} / Y: ${INPUT_PARAM_Y}"
 time=$(date)
 echo ::set-output name=time::"${time}"
+echo ::set-output name=sum::"100"
