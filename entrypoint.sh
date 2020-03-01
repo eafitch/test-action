@@ -1,9 +1,10 @@
 #!/bin/sh -l
 
-echo ${INPUT_PARAM_X}
-echo ${INPUT_PARAM_Y}
+x=${INPUT_PARAM_X}
+y=${INPUT_PARAM_Y}
+z=$((x + y))
 echo "Hello $1"
-echo "X: ${INPUT_PARAM_X} / Y: ${INPUT_PARAM_Y}"
+echo "X: ${x} / Y: ${y}"
 time=$(date)
 echo ::set-output name=time::"${time}"
-echo ::set-output name=sum::"100"
+echo ::set-output name=sum::"${z}"
