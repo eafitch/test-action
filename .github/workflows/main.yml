@@ -1,20 +1,19 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  hello_action_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to say hello and show sum of x / y
     steps:
-      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
+        uses: ./
         id: test
         with:
-          who-to-greet: 'Test User'
-          param-x: 77
-          param-y: 23
+          greet_person_name: 'Test User'
+          param_x: 77
+          param_y: 23
       - name: Get the output time
         run: echo "The time was ${{ steps.test.outputs.time }}"
       - name: Get the output sum
