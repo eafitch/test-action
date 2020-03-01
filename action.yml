@@ -1,16 +1,27 @@
 # action.yml
-name: 'Hello World'
+name: 'Hello Action'
 description: 'Greet someone and record the time'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
+  param-x:  # id of input
+    description: 'Param X'
+    required: false
+    default: '123'
+  param-y:  # id of input
+    description: 'Param Y'
+    required: false
+    default: '324'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.param-x }}
+    - ${{ inputs.param-y }}
