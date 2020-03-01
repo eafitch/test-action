@@ -10,10 +10,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: test
         with:
           who-to-greet: 'Test User'
-          param-x: 666
-      # Use the output from the `hello` step
+          param-x: 77
+          param-y: 23
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was ${{ steps.test.outputs.time }}"
+      - name: Get the output sum
+        run: echo "The time was ${{ steps.test.outputs.sum }}"
